@@ -1,0 +1,43 @@
+---
+title: "/detect"
+description: "Upload an image and get an AI-likelihood score (coming soon)"
+---
+
+<Note>
+  **Status:** The `/detect` endpoint is not fully live yet. This page documents the intended interface so you can build against it early.
+</Note>
+
+## Request
+
+**Method:** `POST`  
+**Path:** `/detect`  
+**Content-Type:** `multipart/form-data`  
+**Auth:** `Authorization: Bearer <API_KEY>`
+
+### Form fields
+
+- **file**: the image file (JPG/PNG/WebP)
+
+## cURL example
+
+```bash
+curl -X POST "https://api.bijou.ai/detect" \
+  -H "Authorization: Bearer $BIJOU_API_KEY" \
+  -F "file=@/path/to/image.jpg"
+```
+
+## Response (example)
+
+```json
+{
+  "label": "ai",
+  "score": 0.93,
+  "model_version": "bijou-detect-v0"
+}
+```
+
+## Notes
+
+- **`score`** is a float in \([0, 1]\), where higher means “more likely AI-generated”.
+- **Field names may change** as the endpoint stabilizes. If you want a specific schema, tell us and we’ll align it.
+

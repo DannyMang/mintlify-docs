@@ -1,0 +1,34 @@
+---
+title: "API keys"
+description: "Generate and use an API key to authenticate requests"
+---
+
+<Note>
+  **Status:** API keys are not fully live yet. This page is the intended workflow and may change.
+</Note>
+
+## Generate an API key
+
+1. Sign in to Bijou.
+2. Go to **Profile**.
+3. Under **API Keys**, click **Generate**.
+4. Copy the key and store it somewhere safe (you won’t be able to see it again).
+
+<Warning>
+  Treat your API key like a password. Do not commit it to GitHub or share it publicly.
+</Warning>
+
+## Use your key
+
+Send your API key as a Bearer token:
+
+```bash
+curl -H "Authorization: Bearer $BIJOU_API_KEY" \
+  https://api.bijou.ai/health
+```
+
+## Rotate or revoke
+
+- **Rotate**: generate a new key and update any services using the old key.
+- **Revoke**: disable a compromised key immediately.
+
