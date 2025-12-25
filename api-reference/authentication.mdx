@@ -20,11 +20,22 @@ description: "Generate and use an API key to authenticate requests"
 
 ## Use your key
 
-Send your API key as a Bearer token:
+Today, the deployed API Gateway for the SageMaker stack in this repo expects:
+
+- `x-api-key: <BIJOU_API_KEY>`
+
+We also support the more standard:
+
+- `Authorization: Bearer <BIJOU_API_KEY>`
+
+```bash
+curl -H "x-api-key: $BIJOU_API_KEY" \
+  https://api.bijou.ai/v1/models
+```
 
 ```bash
 curl -H "Authorization: Bearer $BIJOU_API_KEY" \
-  https://api.bijou.ai/health
+  https://api.bijou.ai/v1/models
 ```
 
 ## Rotate or revoke

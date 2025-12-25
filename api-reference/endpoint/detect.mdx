@@ -12,7 +12,7 @@ description: "Upload an image and get an AI-likelihood score (coming soon)"
 **Method:** `POST`  
 **Path:** `/detect`  
 **Content-Type:** `multipart/form-data`  
-**Auth:** `Authorization: Bearer <API_KEY>`
+**Auth:** `x-api-key: <API_KEY>` (or `Authorization: Bearer <API_KEY>`)
 
 ### Form fields
 
@@ -22,7 +22,7 @@ description: "Upload an image and get an AI-likelihood score (coming soon)"
 
 ```bash
 curl -X POST "https://api.bijou.ai/detect" \
-  -H "Authorization: Bearer $BIJOU_API_KEY" \
+  -H "x-api-key: $BIJOU_API_KEY" \
   -F "file=@/path/to/image.jpg"
 ```
 
